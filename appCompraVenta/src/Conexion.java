@@ -2,9 +2,9 @@ import java.sql.*;
 
 public class Conexion {
 	
-	public Connection connection;
+	static Connection connection = null;
 	
-	public Conexion() {
+	private Conexion() {
 		try {
 			String driver = "org.gjt.mm.mysql.Driver";
 		
@@ -22,6 +22,13 @@ public class Conexion {
 			sqle.printStackTrace();
 			System.err.println("Error connecting: " + sqle);
 		}
+	}
+	
+	public static Connection getConexion() {
+		if (connection==null) {
+			new Conexion();
+		}
+		return connection;
 	}
 	
 	public void insertarVehiculo() {
