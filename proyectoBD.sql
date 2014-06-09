@@ -20,7 +20,6 @@ INSERT INTO Ciudad (nombre) VALUES
 ('San Francisco');
 
 
-
 -- Tabla Usuario
 DROP TABLE IF EXISTS Usuario; 	
 CREATE TABLE Usuario(
@@ -140,7 +139,7 @@ CREATE TABLE Auto(
 );
 -- Inserción de datos en la tabla Auto
 INSERT INTO Auto(patente_vehiculo,cantAsientos) VALUES
-('AAA888','4'),
+	('AAA888','4'),
 ('AAA999','4'),
 ('AAA777','2');
 
@@ -300,10 +299,12 @@ DELIMITER $$
 			IF (nro=5) THEN 
 				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "Ya se ha alcanzado el máximo de respuestas posibles." ;
 			END IF;
-			SELECT COUNT(*) INTO nro FROM Consulta GROUP BY id,id_anuncio
-			HAVING id=NEW.id_consulta AND NEW.dni_usuario IN (SELECT dni_usuario FROM Anuncio
-			WHERE id_anuncio=Anuncio.id);
-			IF (nro=1) THEN 
+			-- SELECT COUNT(*) INTO nro FROM Consulta GROUP BY id,id_anuncio
+			-- HAVING id=NEW.id_consulta AND NEW.dni_usuario IN (SELECT dni_usuario FROM Anuncio
+			-- WHERE id_anuncio=Anuncio.id);
+			-- IF (nro=0) THEN 
+			IF (new.dni_usuario not in(SELECT a.dni_usuario FROM Anuncio a JOIN Consulta c ON a.id=c.id_anuncio 
+			WHERE c.id=NEW.id_consulta)) THEN 
 				SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "No se puede responder una consulta sobre un anuncio del cual no es dueño" ;
 			END IF;
 		END $$
