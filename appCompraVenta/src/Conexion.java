@@ -31,15 +31,5 @@ public class Conexion {
 		return connection;
 	}
 	
-	public void insertarVehiculo() {
-		try {
-			Statement statement = connection.createStatement();
-			String query = "SELECT * FROM Usuario";
-			ResultSet resultSet = statement.executeQuery(query);
-		} catch(SQLException sqle) {
-			sqle.printStackTrace();
-			System.err.println("Error connecting: " + sqle);
-		}
-	}
 	
 }
