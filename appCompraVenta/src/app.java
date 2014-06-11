@@ -64,26 +64,33 @@ public class app {
 		String patente = s.next();
 		System.out.print("\n");
 		
-		System.out.println("Ingrese el estado");
+		System.out.print("Ingrese el estado: ");
 		String estado = s.next();
 		System.out.print("\n");
 		
-		System.out.println("Ingrese los kilómetros");
+		System.out.print("Ingrese los kilómetros: ");
 		int km = s.nextInt();
 		System.out.print("\n");
 		
-		System.out.println("Ingrese el año");
+		System.out.print("Ingrese el año: ");
 		String año = s.next();
 		System.out.print("\n");
 		
-		System.out.println("Ingrese el DNI del dueño");
+		System.out.print("Ingrese el DNI del dueño: ");
 		int dni = s.nextInt();
 		System.out.print("\n");
 				
-		System.out.println("Ingrese el Modelo");
-		int modelo = s.nextInt();
+		System.out.print("Ingrese el ID de la marca deseada: ");
+		Mostrar.marcas();
+		int marca = s.nextInt();
 		System.out.print("\n");
-		
+
+		System.out.print("Ingrese el ID del modelo deseado: ");
+		Mostrar.modelos(marca);
+		int modelo = s.nextInt();
+		System.out.println("\n");
+
+
 		char c = ' ';			
 		char volver = 'V';
 		
@@ -92,24 +99,25 @@ public class app {
 			System.out.println("1 - Auto");
 			System.out.println("2 - Camión");
 			System.out.println("3 - Moto");
+			System.out.println("V - Volver");
 			c = s.next().charAt(0);
 			if (c=='1') {
-				System.out.println("Ingrese la cantidad de asientos: ");
+				System.out.print("Ingrese la cantidad de asientos: ");
 				int cantAsientos = s.nextInt();
 				Insercion.insertarAuto(patente, estado, km, año, dni,modelo, cantAsientos);
-				System.out.println("Insertado exitosamente");
+				System.out.println("Insertado exitosamente \n");
 			}
 			if (c=='2') {
-				System.out.println("Ingrese la tara: ");
+				System.out.print("Ingrese la tara: ");
 				double tara = s.nextDouble();
 				Insercion.insertarCamion(patente, estado, km, año, dni,modelo, tara);
-				System.out.println("Insertado exitosamente");
+				System.out.println("Insertado exitosamente \n");
 			}
 			if (c=='3') {
 				System.out.println("Ingrese 1 si es carenada o 0 si no lo es");
 				int carenada  = s.nextInt();
 				Insercion.insertarMoto(patente, estado, km, año, dni,modelo, carenada);
-				System.out.println("Insertado exitosamente");
+				System.out.println("Insertado exitosamente \n");
 			}
 		}
 	}
