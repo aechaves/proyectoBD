@@ -6,7 +6,7 @@ public class Eliminacion {
 	 * Elimina un anuncio.
 	 * @param id referencia al anuncio que se desea eliminar.
 	 */
-	public void eliminarAnuncio(String id){
+	public static void eliminarAnuncio(int id){
 		try {
 			Statement statement = Conexion.getConexion().createStatement();
 		

@@ -21,7 +21,10 @@ public class app {
 				seleccionarTipoVehiculo();
 			}
 			if (c=='2') {
-				
+				System.out.println("Ingrese el id: ");
+				int id = scanner.nextInt();
+				Eliminacion.eliminarAnuncio(id);
+				System.out.println("Eliminado Correctamente \n");
 			}
 			if (c=='3') {
 				System.out.println("Ingrese el id: ");

@@ -16,8 +16,8 @@ public class Mostrar {
 	            System.out.println(" Monto: " + resultSet.getString("monto"));
 	            System.out.println(" DNI Dueño: " + resultSet.getString("dni_usuario"));
 	            System.out.println(" Patente Vehiculo: " + resultSet.getString("patente_vehiculo"));
-	            System.out.print("\n   ");
-	            System.out.print("\n   ");
+	            System.out.print("\n");
+	            System.out.print("\n");
 			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -28,9 +28,10 @@ public class Mostrar {
 		try {
 			ResultSet resultSet = Consulta.consultasAnuncio(id);
 			while(resultSet.next()) {
-	     
-	            System.out.println(" Descripcion: " + resultSet.getString("descripcion"));
+	     		
+	     		System.out.println("Consultas:");
 	            System.out.println(" DNI Usuario: " + resultSet.getString("dni_usuario"));
+	            System.out.println(" Descripcion: " + resultSet.getString("descripcion"));
 	       
 	            try {
 	            	ResultSet respuestas = Consulta.respuestasConsulta(resultSet.getString("id"));
@@ -41,8 +42,8 @@ public class Mostrar {
 	            	sqle.printStackTrace();
 	            	System.err.println("Error connecting: " + sqle);
 	            }
-	            System.out.print("\n   ");
-	            System.out.print("\n   ");
+	            System.out.print("\n");
+	            System.out.print("\n");
 			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
