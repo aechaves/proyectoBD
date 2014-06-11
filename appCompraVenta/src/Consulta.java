@@ -1,10 +1,15 @@
+/**
+ * Clase que implementa métodos para obtener los resultados de las consultas que el sistema requiera.
+ * @authors Angelo Chávez - Eduardo Benmergui - Facundo Molina 
+ */
+
 import java.sql.*;
 
 public class Consulta {
 	
 	
 	/**
-	 * Consulta que retorna cada vehículo con la cantidad de anuncios que tiene.
+	 * Consulta que retorna cada Vehículo con la cantidad de Anuncios que tiene.
 	 */
 	public static ResultSet vehiculosCantidadAnuncios() {
 		try {
@@ -26,7 +31,7 @@ public class Consulta {
 
 	
 	/**
-	 * Consulta que retorna el anuncio que estuvo más tiempo publicado
+	 * Consulta que retorna el Anuncio que estuvo más tiempo publicado.
 	 */
 	public static ResultSet anuncioMayorPublicacion() {
 		try {
@@ -45,7 +50,8 @@ public class Consulta {
 	}
 	
 	/**
-	 * Consulta que retorna un anuncio
+	 * Consulta que retorna un Anuncio
+	 * @param id es el id del Anuncio que se desea buscar.
 	 */
 	public static ResultSet getAnuncio(String id) {
 		try {
@@ -61,7 +67,8 @@ public class Consulta {
 	}
 	
 	/**
-	 * Consulta que retorna todas las consultas de un anuncio
+	 * Consulta que retorna todas las Consultas de un Anuncio
+	 * @param id es el id del Anuncio del cual se van a obtener las Consultas.
 	 */
 	public static ResultSet consultasAnuncio(String id) {
 		try {
@@ -77,7 +84,8 @@ public class Consulta {
 	}
 	
 	/**
-	 * Consulta que retorna todas las respuestas de una consulta
+	 * Consulta que retorna todas las Respuestas de una Consulta
+	 * @param id es el id de la Consulta de la cual se van a obtener las Respuestas.
 	 */
 	public static ResultSet respuestasConsulta(String id) {
 		try {
@@ -93,7 +101,7 @@ public class Consulta {
 	}
 	
 	/**
-	* Consulta que retorna todas las marcas disponibles
+	* Consulta que retorna todas las Marcas disponibles.
 	*/
 	public static ResultSet getMarcas() {
 		try {
@@ -109,7 +117,8 @@ public class Consulta {
 	}
 
 	/**
-	* Consulta que retorna todas los modelos asociados a cierta marca
+	* Consulta que retorna todas los Modelos disponibles asociados a una Marca.
+	* @param id es el id de la Marca de la cual se van a obtener los Modelos.
 	*/
 	public static ResultSet getModelos(int id) {
 		try {

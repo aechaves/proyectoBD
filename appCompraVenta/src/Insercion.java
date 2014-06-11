@@ -1,7 +1,12 @@
+/**
+ * Clase que implementa métodos para efectuar las inserciones que se deseen sobre la base de datos de el sistema.
+ * @authors Angelo Chávez - Eduardo Benmergui - Facundo Molina 
+ */
 import java.sql.*;
 
 public class Insercion {
 	
+
 	/**
 	 * Inserta los atributos de un Vehículo
 	 */
@@ -108,8 +113,8 @@ public class Insercion {
 	/**
 	 * Inserción de un Anuncio
 	 */
-	public static void insertarAnuncio() {
-		
+	public static void insertarAnuncio(String titulo,String descripcion,Date fechaAlta,Date fechaBaja,String tipo,int monto,int dniUsuario,String patenteVehiculo) {
+			
 	}
 
 	

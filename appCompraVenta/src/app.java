@@ -1,8 +1,16 @@
+/**
+ * Clase principal que implementa la interfaz que permite acceder a las funcionalidades del sistema.
+ * @authors Angelo Chávez - Eduardo Benmergui - Facundo Molina 
+ */
+
 import java.sql.*;
 import java.util.Scanner;
 
 public class app {
 	
+	/**
+	 * Menú principal
+	 */
 	public static void main (String[] args) {
 		
 		Scanner scanner = new Scanner(System.in);
@@ -18,7 +26,7 @@ public class app {
 			System.out.println("S - Salir");
 			c = scanner.next().charAt(0);
 			if (c=='1') {
-				seleccionarTipoVehiculo();
+				concluirInsercionVehiculo();
 			}
 			if (c=='2') {
 				System.out.println("Ingrese el id: ");
@@ -34,33 +42,12 @@ public class app {
 		}
 		
 		
-		
-		
-		/*try {
-			
-	        Insercion.insertarMoto("DDD123","Bueno",4863,"2011",31299371,5,1);
-	        
-	        ResultSet resultSet = Consulta.vehiculosCantidadAnuncios();
-	        
-	        while(resultSet.next()) {
-	           
-	            System.out.print(" Patente: " + resultSet.getString("patente"));
-	            System.out.print(" Marca: " + resultSet.getString("marca"));
-	            System.out.print(" Modelo: " + resultSet.getString("modelo"));
-	            System.out.print(" Cantidad Anuncios: " + resultSet.getString("cant_anuncios"));
-	            
-	            System.out.print("\n   ");
-	            System.out.print("\n   ");
-	        }
-	        
-	        
-		} catch(SQLException sqle) {
-			sqle.printStackTrace();
-			System.err.println("Error connecting: " + sqle);
-		}*/
 	}
 	
-	public static void seleccionarTipoVehiculo() {
+	/**
+	 * Menú secundario para concluir con la inserción de un Vehículo.
+	 */
+	public static void concluirInsercionVehiculo() {
 		Scanner s = new Scanner(System.in);
 		
 		System.out.print("Ingrese la patente: ");

@@ -1,9 +1,17 @@
+/**
+ * Clase que implementa una única instancia de conexión a la base de datos del sistema.
+ * @authors Angelo Chávez - Eduardo Benmergui - Facundo Molina 
+ */
+
 import java.sql.*;
 
 public class Conexion {
 	
 	static Connection connection = null;
 	
+	/**
+	 * Constructor
+	 */
 	private Conexion() {
 		try {
 			String driver = "org.gjt.mm.mysql.Driver";
@@ -24,6 +32,9 @@ public class Conexion {
 		}
 	}
 	
+	/**
+	 * Retorna la instancia de la Conexion.
+	 */
 	public static Connection getConexion() {
 		if (connection==null) {
 			new Conexion();
