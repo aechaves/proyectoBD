@@ -92,4 +92,35 @@ public class Consulta {
 		}
 	}
 	
+	/**
+	* Consulta que retorna todas las marcas disponibles
+	*/
+	public static ResultSet getMarcas() {
+		try {
+			Statement statement = Conexion.getConexion().createStatement();
+			String query = 	"SELECT * FROM Marca;";
+			ResultSet resultSet = statement.executeQuery(query);
+			return resultSet;
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			System.err.println("Error connecting: " + sqle);
+			return null;
+		}
+	}
+
+	/**
+	* Consulta que retorna todas los modelos asociados a cierta marca
+	*/
+	public static ResultSet getModelos(int id) {
+		try {
+			Statement statement = Conexion.getConexion().createStatement();
+			String query = 	"SELECT * FROM Modelo WHERE id_marca="+id+";";
+			ResultSet resultSet = statement.executeQuery(query);
+			return resultSet;
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			System.err.println("Error connecting: " + sqle);
+			return null;
+		}
+	}
 }
