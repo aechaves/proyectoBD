@@ -49,4 +49,38 @@ public class Mostrar {
 			System.err.println("Error connecting: " + sqle);
 		}
 	}
+
+	public static void marcas() {
+		//Obtenemos las marcas
+		try {
+			ResultSet resultSet = Consulta.getMarcas();
+			while(resultSet.next()) {
+	           
+	            System.out.println(" Marca: " + resultSet.getString("nombre"));
+	            System.out.println(" ID: " + resultSet.getString("id"));
+	            System.out.print("\n");
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			System.err.println("Error connecting: " + sqle);
+		}
+
+	}
+
+	public static void modelos(int id_marca) {
+		//Obtenemos los modelos
+		try {
+			ResultSet resultSet = Consulta.getModelos(id_marca);
+			while(resultSet.next()) {
+	           
+	            System.out.println(" Modelo: " + resultSet.getString("nombre"));
+	            System.out.println(" ID: " + resultSet.getString("id"));
+	            System.out.print("\n");
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			System.err.println("Error connecting: " + sqle);
+		}
+
+	}
 }
