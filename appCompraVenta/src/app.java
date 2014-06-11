@@ -53,15 +53,15 @@ public class app {
 		System.out.print("Ingrese la patente: ");
 		String patente = s.next();
 		System.out.print("\n");
-		
+	
 		System.out.print("Ingrese el estado: ");
 		String estado = s.next();
 		System.out.print("\n");
-		
+	
 		System.out.print("Ingrese los kilómetros: ");
 		int km = s.nextInt();
 		System.out.print("\n");
-		
+ 
 		System.out.print("Ingrese el año: ");
 		String año = s.next();
 		System.out.print("\n");
@@ -96,18 +96,21 @@ public class app {
 				int cantAsientos = s.nextInt();
 				Insercion.insertarAuto(patente, estado, km, año, dni,modelo, cantAsientos);
 				System.out.println("Insertado exitosamente \n");
+				c='V';				
 			}
 			if (c=='2') {
 				System.out.print("Ingrese la tara: ");
 				double tara = s.nextDouble();
 				Insercion.insertarCamion(patente, estado, km, año, dni,modelo, tara);
 				System.out.println("Insertado exitosamente \n");
+				c='V';
 			}
 			if (c=='3') {
 				System.out.println("Ingrese 1 si es carenada o 0 si no lo es");
 				int carenada  = s.nextInt();
 				Insercion.insertarMoto(patente, estado, km, año, dni,modelo, carenada);
 				System.out.println("Insertado exitosamente \n");
+				c='V';
 			}
 		}
 	}

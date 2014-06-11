@@ -4,6 +4,7 @@
  */
 
 import java.sql.*;
+import java.io.*;
 
 public class Conexion {
 	
@@ -14,15 +15,41 @@ public class Conexion {
 	 */
 	private Conexion() {
 		try {
-			String driver = "org.gjt.mm.mysql.Driver";
+        	String base = "";
+            String usuario = "";
+        	String passW = "";
+
+         	try{
+			 
+			 	BufferedReader archivoConfiguracion = new BufferedReader(new FileReader("config.txt"));
+                    
+                try{
+               		base = archivoConfiguracion.readLine(); 
+                    usuario = archivoConfiguracion.readLine();
+                   	passW = archivoConfiguracion.readLine();
+                    System.out.println(base +" "+usuario+" "+passW);
+                    archivoConfiguracion.close();
+                }catch(IOException e){
+               	    e.getMessage();
+                };
+                            
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            	e.getMessage();
+            };
+    		// Throw away the blank line at the top.
+ 
+           	String driver = "org.gjt.mm.mysql.Driver";
 		
-			String url = "jdbc:mysql://localhost/proyectoBD";
-			String username = "root";
-			String password = "";
-        
+			//String url = "jdbc:mysql://localhost/proyectoBD";
+            String url = base;
+			String username = usuario;
+			String password = passW;
+      
 			// Load database driver if not already loaded.
 			Class.forName(driver);
 			// Establish network connection to database.
+			
 			connection = DriverManager.getConnection(url, username, password);
 		} catch(ClassNotFoundException cnfe) {
 		      System.err.println("Error loading driver: " + cnfe);

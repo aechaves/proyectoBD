@@ -65,7 +65,7 @@ public class Mostrar {
 	 * Muestra la lista de las Marcas de Vehiculos disponibles.
 	 */
 	public static void marcas() {
-		
+		System.out.println("");
 		try {
 			ResultSet resultSet = Consulta.getMarcas();
 			while(resultSet.next()) {
@@ -86,7 +86,7 @@ public class Mostrar {
 	 * @param id_marca es el id de la marca de la cual se van a obtener los Modelos
 	 */
 	public static void modelos(int id_marca) {
-		
+		System.out.println("");
 		try {
 			ResultSet resultSet = Consulta.getModelos(id_marca);
 			while(resultSet.next()) {
