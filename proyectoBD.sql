@@ -215,6 +215,11 @@ INSERT INTO Anuncio(titulo,descripcion,fechaAlta,tipo,monto,dni_usuario,patente_
 
 
 -- Trigger para controlar el solapamiento de fechas en la insercion de anuncios 
+-- En cuanto a este trigger aclaramos que se considera que cuando se agrega quiere agregar un anuncio la fecha de alta viene dada por
+-- la función NOW() y la fecha de baja queda NULL (es decir, se supone que el anuncio va a estar publicado hasta que se desee eliminarlo)
+-- con lo cual de esta manera va a haber solapamiento de fecha cuando se quiera agegar un anuncio sobre un vehiculo del cual ya hay un 
+-- post vigente, es decir su fecha de baja es null.
+
 DELIMITER $$
 	CREATE TRIGGER triggerControlSolapamientoFecha
 	BEFORE INSERT ON Anuncio FOR EACH ROW
