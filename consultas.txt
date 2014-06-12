@@ -1,0 +1,35 @@
+Consulas realizadas:
+
+1. Devolver cada vehículo con la cantidad de anuncios que tiene: 
+
+	SELECT v.patente,mar.nombre AS marca,m.nombre AS modelo,cant_anuncios FROM 
+	(((SELECT patente_vehiculo,COUNT(*) AS cant_anuncios FROM Anuncio GROUP BY patente_vehiculo) a
+	JOIN (SELECT patente,id_modelo FROM Vehiculo) v ON a.patente_vehiculo=v.patente) 
+	JOIN Modelo m ON v.id_modelo=m.id)
+	JOIN Marca mar ON m.id_marca=mar.id
+	;
+
+2. Devolver el anuncio que estuvo más tiempo publicado:
+
+	SELECT * FROM (
+	SELECT id,(DATEDIFF(fechaFin,fechaAlta)) AS dias FROM 
+	(SELECT id,date (IF (fechaBaja IS NULL,NOW(),fechaBaja ) ) AS fechaFin,fechaAlta FROM Anuncio ) s
+	) t ORDER BY dias DESC LIMIT 1;
+
+Las siguientes consultas corresponden a las propuestas por el grupo:
+
+3. Devolver todas las Motos con su Marca y Modelo
+
+	SELECT Vehiculo.*, Moto.carenada, Marca.nombre AS marca,Modelo.nombre AS modelo FROM 
+	Vehiculo JOIN Moto ON
+	Vehiculo.patente=Moto.patente_vehiculo JOIN Modelo ON 
+	Vehiculo.id_modelo=Modelo.id
+	JOIN Marca ON Modelo.id_marca=Marca.id;
+
+4. Devolver todos los anuncios sobre Autos
+
+	SELECT * FROM Anuncio a WHERE a.patente_vehiculo in (SELECT v.patente FROM Vehiculo v JOIN Auto a ON v.patente=a.patente_vehiculo) ;
+
+5.
+
+6. 
