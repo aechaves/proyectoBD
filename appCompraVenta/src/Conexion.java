@@ -27,7 +27,7 @@ public class Conexion {
                		base = archivoConfiguracion.readLine(); 
                     usuario = archivoConfiguracion.readLine();
                    	passW = archivoConfiguracion.readLine();
-                    System.out.println(base +" "+usuario+" "+passW);
+                   
                     archivoConfiguracion.close();
                 }catch(IOException e){
                	    e.getMessage();

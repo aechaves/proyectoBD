@@ -13,6 +13,7 @@ public class Mostrar {
 	 */
 	public static void anuncioConsultasRespuestas(String id) {
 		
+		System.out.println("------------------------------ANUNCIO "+id+"-------------------------------");
 		//Obtenemos el Anuncio y mostramos sus datos
 		try {
 			ResultSet resultSet = Consulta.getAnuncio(id);

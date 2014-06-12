@@ -36,10 +36,9 @@ public class Consulta {
 	public static ResultSet anuncioMayorPublicacion() {
 		try {
 			Statement statement = Conexion.getConexion().createStatement();
-			String query = 	"select id,MAX(DATEDIFF(fechaFin,fechaAlta)) as dias from " +
-							"(select id,date (if (fechaBaja is null,NOW(),fechaBaja ) ) " +
-							"as fechaFin,fechaAlta " +
-							"FROM Anuncio ) s;";
+			String query = 	"SELECT * FROM ( SELECT id,(DATEDIFF(fechaFin,fechaAlta)) AS dias FROM " +
+							"(SELECT id,date (IF (fechaBaja IS NULL,NOW(),fechaBaja ) ) AS fechaFin,fechaAlta FROM Anuncio ) s" +
+							") t ORDER BY dias DESC LIMIT 1;";
 			ResultSet resultSet = statement.executeQuery(query);
 			return resultSet;
 		} catch (SQLException sqle) {
@@ -132,4 +131,5 @@ public class Consulta {
 			return null;
 		}
 	}
+	
 }
