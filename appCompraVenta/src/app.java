@@ -21,8 +21,9 @@ public class app {
 			System.out.println("-------------------COMPRA-VENTA VEHICULOS-----------------------------");
 			System.out.println("1 - Insertar Vehículo");
 			System.out.println("2 - Insertar Anuncio");
-			System.out.println("3 - Eliminar Anuncio");
-			System.out.println("4 - Listar Anuncio");
+			System.out.println("3 - Dar de baja Anuncio");
+			System.out.println("4 - Eliminar Anuncio");
+			System.out.println("5 - Listar Anuncio");
 			System.out.println("S - Salir");
 			c = scanner.next().charAt(0);
 			if (c=='1') {
@@ -34,10 +35,16 @@ public class app {
 			if (c=='3') {
 				System.out.println("Ingrese el id: ");
 				int id = scanner.nextInt();
-				Eliminacion.eliminarAnuncio(id);
-				System.out.println("Eliminado Correctamente \n");
+				Eliminacion.bajaAnuncio(id);
+				System.out.println("Baja Correcta \n");
 			}
 			if (c=='4') {
+				System.out.println("Ingrese el id: ");
+				int id = scanner.nextInt();
+				Eliminacion.eliminarAnuncio(id);
+				System.out.println("Eliminado Correctamente");
+			}
+			if (c=='5') {
 				System.out.println("Ingrese el id: ");
 				int id = scanner.nextInt();
 				Mostrar.anuncioConsultasRespuestas(""+id+"");

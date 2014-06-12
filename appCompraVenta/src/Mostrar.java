@@ -22,6 +22,10 @@ public class Mostrar {
 	            System.out.println(" Titulo: " + resultSet.getString("titulo"));
 	            System.out.println(" Descripcion: " + resultSet.getString("descripcion"));
 	            System.out.println(" Fecha Alta: " + resultSet.getString("fechaAlta"));
+	            String fechaBaja = resultSet.getString("fechaBaja");
+	            if (fechaBaja != null) {
+	            	System.out.println(" Fecha Baja: " + fechaBaja);
+	            }
 	            System.out.println(" Tipo: " + resultSet.getString("tipo"));
 	            System.out.println(" Monto: " + resultSet.getString("monto"));
 	            System.out.println(" DNI Dueño: " + resultSet.getString("dni_usuario"));
