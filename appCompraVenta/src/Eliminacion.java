@@ -2,7 +2,7 @@
  * Clase que implementa métodos para efectuar las elimaciones que se deseen sobre la base de datos del sistema.
  * @authors Angelo Chávez - Eduardo Benmergui - Facundo Molina 
  */
-import java.util.Date;
+
 import java.sql.*;
 
 public class Eliminacion {

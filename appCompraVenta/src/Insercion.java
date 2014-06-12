@@ -92,7 +92,7 @@ public class Insercion {
 	/**
 	 * Inserta los atributos de Vehículo y de PickUp en las tablas correspondientes.
 	 */
-	public static void insertPickUp(String patente,String estado,int km,String año,int dniUsuario, int idModelo,String traccion) {
+	public static void insertarPickUp(String patente,String estado,int km,String año,int dniUsuario, int idModelo,String traccion) {
 		try {
 			Statement statement = Conexion.getConexion().createStatement();
 			
@@ -113,8 +113,18 @@ public class Insercion {
 	/**
 	 * Inserción de un Anuncio
 	 */
-	public static void insertarAnuncio(String titulo,String descripcion,Date fechaAlta,Date fechaBaja,String tipo,int monto,int dniUsuario,String patenteVehiculo) {
+	public static void insertarAnuncio(String titulo,String descripcion,String tipo,int monto,int dniUsuario,String patenteVehiculo) {
+		try {
+			Statement statement = Conexion.getConexion().createStatement();
 			
+			String query = "INSERT INTO Anuncio(titulo,descripcion,fechaAlta,tipo,monto,dni_usuario,patente_vehiculo) " +
+					"VALUES ('"+titulo+"','"+descripcion+"',NOW(),'"+tipo+"','"+monto+"','"+dniUsuario+"','"+patenteVehiculo+"');";
+			statement.execute(query);
+			
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			System.err.println("Error connecting: " + sqle);
+		}
 	}
 
 	
