@@ -1,0 +1,80 @@
+Para probar el programa java se puede utilizar los siguientes datos:
+ 
+ 1. Si selecciona insertar Vehículo:
+
+ 	Ingrese la patente: ASD456
+
+	Ingrese el estado: Bueno
+
+	Ingrese los kilómetros: 4563
+
+	Ingrese el año: 1994
+
+	Ingrese el DNI del dueño: 31299370
+
+	Ingrese el ID de la marca deseada: 
+ 
+ 	Marca: Ford
+ 	ID: 1
+	Marca: Renault
+ 	ID: 2
+	Marca: Honda
+ 	ID: 3
+	Marca: Yamaha
+ 	ID: 4
+	Marca: Toyota
+ 	ID: 5
+	Marca: Chevrolet
+ 	ID: 6
+	Marca: Volvo
+ 	ID: 7
+
+	1
+
+	Ingrese el ID del modelo deseado: 
+ 	Modelo: Focus
+ 	ID: 1
+	Modelo: Fiesta
+ 	ID: 2
+
+	2
+
+
+	-------------------SELECCIONAR VEHICULO-----------------------------
+	1 - Auto
+	2 - Camión
+	3 - Moto
+	4 - PickUp
+	V - Volver
+
+	1
+
+	Ingrese la cantidad de asientos: 4
+	
+
+
+2. 	Si selecciona insertar Anuncio:
+ 	
+ 	Ingrese el titulo: Vendo Moto Honda
+
+	Ingrese una descripcion: Excelente estado	
+
+	Ingrese Venta o Permuta según el tipo: Venta
+
+	Ingrese el monto: 8000
+
+	Ingrese el DNI del dueño: 31299371
+
+	Ingrese la patente del vehiculo: AAA777
+
+
+
+3. Si selecciona eliminar Anuncio: 
+	
+	Ingrese el id: 2	
+
+4. Si selecciona listar Anuncio: 
+
+	Ingrese el id: 1
+
+	
