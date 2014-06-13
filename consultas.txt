@@ -28,8 +28,43 @@ Las siguientes consultas corresponden a las propuestas por el grupo:
 
 4. Devolver todos los anuncios sobre Autos
 
-	SELECT * FROM Anuncio a WHERE a.patente_vehiculo in (SELECT v.patente FROM Vehiculo v JOIN Auto a ON v.patente=a.patente_vehiculo) ;
+	SELECT * FROM Anuncio a WHERE a.patente_vehiculo IN (SELECT v.patente FROM Vehiculo v JOIN Auto a ON v.patente=a.patente_vehiculo) ;
 
-5.
+5. Devolver todos los vehiculos de una Marca determinada
 
-6. 
+	SELECT Marca.nombre AS ma,mo.nombre AS mo,v.km,v.año,v.estado,v.patente, v.dni_usuario FROM 
+	Vehiculo v JOIN Modelo mo ON v.id_modelo = mo.id JOIN Marca ON mo.id_marca = Marca.id 
+    WHERE id_modelo IN
+    (SELECT Modelo.id FROM Modelo JOIN Marca ON Modelo.id_marca = Marca.id WHERE Marca.id=5 );
+
+6. Devolver todos los Anuncios
+
+	SELECT Vehiculo.patente AS patente, Vehiculo.estado AS estado, Vehiculo.km AS km, Vehiculo.año AS año, 
+	Vehiculo.dni_usuario AS dni_usuario, Marca.nombre AS marca, Modelo.nombre AS modelo,
+	CONCAT( Auto.cantAsientos, ' Asientos')  AS detalle, COUNT(Anuncio.id) AS total FROM 
+	Vehiculo JOIN Auto ON Vehiculo.patente=Auto.patente_vehiculo JOIN Modelo ON 
+	Vehiculo.id_modelo=Modelo.id JOIN Marca ON Modelo.id_marca=Marca.id 
+	JOIN Anuncio ON Vehiculo.patente=Anuncio.patente_Vehiculo 
+	GROUP BY Vehiculo.patente            
+	
+	UNION 
+	
+	SELECT Vehiculo.patente AS patente, Vehiculo.estado AS estado, Vehiculo.km AS km, 
+	Vehiculo.año AS año, Vehiculo.dni_usuario AS dni_usuario, Marca.nombre AS marca, Modelo.nombre AS modelo, 
+	CONCAT(Tara , Camion.tara)  AS detalle, COUNT(Anuncio.id) AS total FROM 
+	Vehiculo JOIN Camion ON Vehiculo.patente=Camion.patente_vehiculo JOIN Modelo ON 
+	Vehiculo.id_modelo=Modelo.id JOIN Marca ON Modelo.id_marca=Marca.id 
+	JOIN Anuncio ON Vehiculo.patente=Anuncio.patente_Vehiculo 
+	GROUP BY Vehiculo.patente 
+	
+	UNION 
+
+	SELECT Vehiculo.patente AS patente, Vehiculo.estado AS estado, Vehiculo.km AS km, 
+	Vehiculo.año AS año, Vehiculo.dni_usuario AS dni_usuario, Marca.nombre AS marca, Modelo.nombre AS modelo, 
+	CONCAT( IF(Moto.carenada,carenada,' No carenada'))  AS detalle, COUNT(Anuncio.id) AS total FROM
+	Vehiculo JOIN Moto ON Vehiculo.patente=Moto.patente_vehiculo JOIN Modelo ON 
+	Vehiculo.id_modelo=Modelo.id JOIN Marca ON Modelo.id_marca=Marca.id 
+	JOIN Anuncio ON Vehiculo.patente=Anuncio.patente_Vehiculo 
+	GROUP BY Vehiculo.patente 
+	
+	ORDER BY dni_usuario,patente;
